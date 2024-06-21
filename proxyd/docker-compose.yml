@@ -1,0 +1,23 @@
+services:
+  redis:
+    container_name: redis
+    image: redis:6.2-alpine
+    restart: always
+    #networks:
+    #  - tornado
+    expose:
+      - 6379
+    command: ["redis-server"]
+    volumes:
+      - ./redis:/data
+  proxyd:
+    container_name: proxyd
+    image: proxyd
+    restart: always
+    #networks:
+    #  - tornado
+    environment:
+      - RPC_URL=
+      - WS_URL=
+    ports:
+      - '127.0.0.1:8544:8544'
