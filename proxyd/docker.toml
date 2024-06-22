@@ -94,7 +94,7 @@ enabled = true
 ttl = "14s"
 
 [redis]
-url = "redis://redis:6379"
+url = "$REDIS_URL"
 
 [metrics]
 enabled = true
