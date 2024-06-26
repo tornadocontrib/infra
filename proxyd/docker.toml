@@ -37,7 +37,24 @@ ws_method_whitelist = [
   "eth_sendRawTransaction",
   "net_version",
   "web3_clientVersion",
-  "web3_sha3"
+  "web3_sha3",
+  # tracers for archive nodes
+  "trace_block",
+  "trace_call",
+  "trace_callMany",
+  "trace_filter",
+  "trace_rawTransaction",
+  "trace_replayBlockTransactions",
+  "trace_replayTransaction",
+  "trace_transaction",
+  "debug_getBadBlocks",
+  "debug_storageRangeAt",
+  "debug_getTrieFlushInterval",
+  "debug_traceBlock",
+  "debug_traceBlockByHash",
+  "debug_traceBlockByNumber",
+  "debug_traceCall",
+  "debug_traceTransaction",
 ]
 ws_backend_group = "main"
 
@@ -79,6 +96,22 @@ eth_sendRawTransaction = "main"
 net_version = "main"
 web3_clientVersion = "main"
 web3_sha3 = "main"
+trace_block = "main"
+trace_call = "main"
+trace_callMany = "main"
+trace_filter = "main"
+trace_rawTransaction = "main"
+trace_replayBlockTransactions = "main"
+trace_replayTransaction = "main"
+trace_transaction = "main"
+debug_getBadBlocks = "main"
+debug_storageRangeAt = "main"
+debug_getTrieFlushInterval = "main"
+debug_traceBlock = "main"
+debug_traceBlockByHash = "main"
+debug_traceBlockByNumber = "main"
+debug_traceCall = "main"
+debug_traceTransaction = "main"
 
 [server]
 rpc_host = "0.0.0.0"
