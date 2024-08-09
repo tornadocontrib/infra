@@ -64,7 +64,9 @@ func RewriteRequest(rctx RewriteContext, req *RPCReq, res *RPCRes) (RewriteResul
 	switch req.Method {
 	case "eth_getLogs",
 		"eth_newFilter":
-		return rewriteRange(rctx, req, res, 0)
+		// return rewriteRange(rctx, req, res, 0)
+		// Tornado: disable range check unti the UI is fixed
+		return RewriteNone, nil
 	case "debug_getRawReceipts", "consensus_getReceipts":
 		return rewriteParam(rctx, req, res, 0, true, false)
 	case "eth_getBalance",

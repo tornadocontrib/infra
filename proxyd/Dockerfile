@@ -6,7 +6,7 @@ ARG GITVERSION=docker
 
 RUN apk add make jq git gcc musl-dev linux-headers
 
-COPY ./proxyd /app
+COPY . /app
 
 WORKDIR /app
 
@@ -16,7 +16,7 @@ FROM alpine:3.18
 
 RUN apk add bind-tools jq curl bash git redis
 
-COPY ./proxyd/entrypoint.sh /bin/entrypoint.sh
+COPY ./entrypoint.sh /bin/entrypoint.sh
 
 RUN apk update && \
     apk add ca-certificates && \
@@ -24,9 +24,11 @@ RUN apk update && \
 
 EXPOSE 8080
 
-VOLUME /etc/proxyd
+# VOLUME /etc/proxyd
+
+ADD ./docker.toml /proxyd.toml
 
 COPY --from=builder /app/bin/proxyd /bin/proxyd
 
 ENTRYPOINT ["/bin/entrypoint.sh"]
-CMD ["/bin/proxyd", "/etc/proxyd/proxyd.toml"]
+CMD ["/bin/proxyd", "/proxyd.toml"]
